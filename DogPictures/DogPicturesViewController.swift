@@ -12,12 +12,10 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
 
     @IBOutlet weak var collectionView: UICollectionView!
     var posts : [RedditPost] = []
-    let numberOfCellsPerRow : CGFloat = 2.0
+    let numberOfCellsPerRow : Int = 3
     
     let defaultSubreddit = "aww"
     let defaultFilter = "top"
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +27,14 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setCellSize(cellsPerRow: numberOfCellsPerRow)
+    }
+    
+    func setCellSize(cellsPerRow : Int) {
+    
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             let spacing = flowLayout.minimumInteritemSpacing
-            let cellWidth = (view.bounds.width - (numberOfCellsPerRow - 1) * spacing)/numberOfCellsPerRow
+            let cellWidth = (view.bounds.width - (CGFloat(numberOfCellsPerRow - 1)) * spacing)/CGFloat(cellsPerRow)
             flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         }
     }
@@ -57,6 +59,7 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func parseResponseData(_ data : Data?) {
         guard let data = data else {
+            NSLog("Error unwrapping data")
             return
         }
         
