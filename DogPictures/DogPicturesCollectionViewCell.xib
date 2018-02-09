@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DogPicturesCollectionViewCell" id="To6-Iq-UEu" customClass="DogPicturesCollectionViewCell" customModule="DogPictures" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oj1-gu-99x" userLabel="ThumbnailImage">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-kH-SrN" userLabel="PlayableIcon">
+                        <rect key="frame" x="30" y="30" width="240" height="240"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="dKH-kH-SrN" firstAttribute="centerY" secondItem="Zv2-aG-plN" secondAttribute="centerY" id="Ju2-wa-wcs"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dKH-kH-SrN" secondAttribute="bottom" constant="30" id="W82-uG-Dgb"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dKH-kH-SrN" secondAttribute="trailing" constant="30" id="WBN-Gd-OX5"/>
+                <constraint firstItem="oj1-gu-99x" firstAttribute="top" secondItem="To6-Iq-UEu" secondAttribute="top" id="dgV-af-rxd"/>
+                <constraint firstItem="dKH-kH-SrN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="To6-Iq-UEu" secondAttribute="leading" constant="30" id="mEa-eN-m0p"/>
+                <constraint firstItem="dKH-kH-SrN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="To6-Iq-UEu" secondAttribute="top" constant="30" id="pNP-CT-YAW"/>
+                <constraint firstItem="oj1-gu-99x" firstAttribute="leading" secondItem="To6-Iq-UEu" secondAttribute="leading" id="sf9-hT-b2Z"/>
+                <constraint firstAttribute="trailing" secondItem="oj1-gu-99x" secondAttribute="trailing" id="tbE-Mj-O6F"/>
+                <constraint firstItem="dKH-kH-SrN" firstAttribute="centerX" secondItem="Zv2-aG-plN" secondAttribute="centerX" id="vOW-1l-9h3"/>
+                <constraint firstAttribute="bottom" secondItem="oj1-gu-99x" secondAttribute="bottom" id="xx0-jJ-Gjd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Zv2-aG-plN"/>
+            <size key="customSize" width="300" height="303"/>
+            <connections>
+                <outlet property="animatedIndicatorIcon" destination="dKH-kH-SrN" id="Pfb-MI-VGR"/>
+                <outlet property="thumbnailImage" destination="oj1-gu-99x" id="T2P-BC-Cdk"/>
+            </connections>
+            <point key="canvasLocation" x="19" y="8.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image-1" width="256" height="256"/>
+    </resources>
+</document>
