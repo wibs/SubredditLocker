@@ -65,7 +65,6 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         
         do {
             let encodeData = try JSONDecoder().decode(ListingRequestResult.self, from: data) as ListingRequestResult
-            NSLog(encodeData.kind)
             
             self.posts = encodeData.data.children
             DispatchQueue.main.async {
