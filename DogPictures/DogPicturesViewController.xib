@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DogPicturesViewController">
             <connections>
                 <outlet property="collectionView" destination="9KA-yZ-oz8" id="uAS-VC-yqJ"/>
-                <outlet property="view" destination="iN0-l3-epB" id="hXQ-b7-CT5"/>
+                <outlet property="selectedImage" destination="HTd-c5-gK9" id="cOS-ma-EEF"/>
+                <outlet property="selectionView" destination="DsO-tw-s4D" id="NDg-Eu-jT7"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Gj4-ti-KJl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-yZ-oz8">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-yZ-oz8">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="cy1-69-FBp">
@@ -34,14 +36,38 @@
                         <outlet property="delegate" destination="-1" id="Aan-df-hky"/>
                     </connections>
                 </collectionView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DsO-tw-s4D" userLabel="Selection View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTd-c5-gK9" userLabel="Selected Image" customClass="FLAnimatedImageView">
+                            <rect key="frame" x="10" y="10" width="355" height="647"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="4kq-Gg-M79" appends="YES" id="DVM-Nr-UXr"/>
+                            </connections>
+                        </imageView>
+                    </subviews>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="DsO-tw-s4D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3no-Kb-TTh"/>
+                <constraint firstItem="DsO-tw-s4D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4IX-MB-Uqs"/>
                 <constraint firstItem="9KA-yZ-oz8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7x4-fv-B08"/>
+                <constraint firstAttribute="trailing" secondItem="DsO-tw-s4D" secondAttribute="trailing" id="Sx4-oz-JqA"/>
+                <constraint firstAttribute="bottom" secondItem="DsO-tw-s4D" secondAttribute="bottom" id="dL2-q4-IT2"/>
                 <constraint firstItem="9KA-yZ-oz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fJs-T4-Vph"/>
                 <constraint firstAttribute="bottom" secondItem="9KA-yZ-oz8" secondAttribute="bottom" id="jMz-h2-I2U"/>
                 <constraint firstAttribute="trailing" secondItem="9KA-yZ-oz8" secondAttribute="trailing" id="kNF-pO-9er"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
+        <tapGestureRecognizer id="4kq-Gg-M79">
+            <connections>
+                <action selector="imageTapped:" destination="-1" id="mWG-eA-8oA"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

@@ -37,7 +37,7 @@ struct PostData : Codable {
     }
 
     var postURL : URL? {
-        return URL(string: thumbnail)
+        return URL(string: url)
     }
     
     var thumbnailURL : URL? {

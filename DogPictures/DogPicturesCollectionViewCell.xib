@@ -19,10 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oj1-gu-99x" userLabel="ThumbnailImage">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oj1-gu-99x" userLabel="ThumbnailImage">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-kH-SrN" userLabel="PlayableIcon">
+                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animationIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-kH-SrN" userLabel="PlayableIcon">
                         <rect key="frame" x="30" y="30" width="240" height="240"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
@@ -50,6 +50,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Image-1" width="256" height="256"/>
+        <image name="animationIndicator" width="256" height="256"/>
     </resources>
 </document>

@@ -7,7 +7,7 @@ target 'DogPictures' do
 
   # Pods for DogPictures
 
-  pod 'SDWebImage', '~> 4.0'
+  pod 'SDWebImage/GIF', '~> 4.0'
 
   target 'DogPicturesTests' do
     inherit! :search_paths

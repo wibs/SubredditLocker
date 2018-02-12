@@ -19,8 +19,6 @@
 		A93E5721202D474800CB6DA4 /* ListingStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E5720202D474800CB6DA4 /* ListingStructures.swift */; };
 		A9807D45202D497100DA75A7 /* DogPicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */; };
 		A9807D46202D497100DA75A7 /* DogPicturesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */; };
-		A9F6D7DA202D679A00471E03 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F6D7D8202D679A00471E03 /* ImageViewerViewController.swift */; };
-		A9F6D7DB202D679A00471E03 /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F6D7D9202D679A00471E03 /* ImageViewerViewController.xib */; };
 		F36A2B09B7EA0895A41B07DB /* Pods_DogPicturesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4478C4074AE85BAFAF0763E2 /* Pods_DogPicturesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +62,6 @@
 		A93E5720202D474800CB6DA4 /* ListingStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingStructures.swift; sourceTree = "<group>"; };
 		A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogPicturesCollectionViewCell.xib; sourceTree = "<group>"; };
-		A9F6D7D8202D679A00471E03 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
-		A9F6D7D9202D679A00471E03 /* ImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerViewController.xib; sourceTree = "<group>"; };
 		BDDE56A594DA3FD69EB2F47E /* Pods_DogPictures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogPictures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D1429BA0FD86E316CFE768 /* Pods_DogPicturesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogPicturesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6A4A46BDF91E7F4C98BC67 /* Pods-DogPicturesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogPicturesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogPicturesUITests/Pods-DogPicturesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,8 +152,6 @@
 				A93E5720202D474800CB6DA4 /* ListingStructures.swift */,
 				A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */,
 				A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */,
-				A9F6D7D8202D679A00471E03 /* ImageViewerViewController.swift */,
-				A9F6D7D9202D679A00471E03 /* ImageViewerViewController.xib */,
 			);
 			path = DogPictures;
 			sourceTree = "<group>";
@@ -298,7 +292,6 @@
 			files = (
 				A93E56F9202D302400CB6DA4 /* LaunchScreen.storyboard in Resources */,
 				A93E56F6202D302400CB6DA4 /* Assets.xcassets in Resources */,
-				A9F6D7DB202D679A00471E03 /* ImageViewerViewController.xib in Resources */,
 				A9807D46202D497100DA75A7 /* DogPicturesCollectionViewCell.xib in Resources */,
 				A93E571D202D30FE00CB6DA4 /* DogPicturesViewController.xib in Resources */,
 			);
@@ -409,10 +402,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DogPictures/Pods-DogPictures-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +473,6 @@
 				A93E5721202D474800CB6DA4 /* ListingStructures.swift in Sources */,
 				A93E56F1202D302400CB6DA4 /* DogPicturesViewController.swift in Sources */,
 				A9807D45202D497100DA75A7 /* DogPicturesCollectionViewCell.swift in Sources */,
-				A9F6D7DA202D679A00471E03 /* ImageViewerViewController.swift in Sources */,
 				A93E56EF202D302400CB6DA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

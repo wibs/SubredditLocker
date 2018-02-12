@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FLAnimatedImage
 
 class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var posts : [RedditPost] = []
     let numberOfCellsPerRow : Int = 3
+    
+    @IBOutlet weak var selectionView: UIView!
+    @IBOutlet weak var selectedImage: FLAnimatedImageView!
+    
+    var openedCellFrame: CGRect?
     
     let defaultSubreddit = "aww"
     let defaultFilter = "top"
@@ -21,6 +27,8 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         super.viewDidLoad()
         
         collectionView.register(UINib(nibName: String(describing: DogPicturesCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: DogPicturesCollectionViewCell.self))
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         loadDataFromSubreddit(subreddit: defaultSubreddit, filter: defaultFilter)
     }
@@ -90,6 +98,41 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.loadCellWithImageURL(url: posts[indexPath.row].data.thumbnailURL, isAnimation: posts[indexPath.row].data.animated)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            return
+        }
+        
+        selectedImage.sd_setImage(with: posts[indexPath.row].data.postURL)
+        
+        let translatedFrame = collectionView.convert(cell.frame, to: view)
+        self.selectedImage.frame = translatedFrame
+        openedCellFrame = self.selectedImage.frame
+        self.selectionView.isHidden = false
+        self.selectionView.alpha = 0.0
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.selectionView.alpha = 1.0
+            self.selectedImage.frame = UIScreen.main.bounds
+        })
+    }
+    
+    @IBAction func imageTapped(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            guard let destinationFrame = self.openedCellFrame else {
+                self.selectionView.isHidden = false;
+                return
+            }
+            self.selectedImage.frame = destinationFrame
+            self.selectionView.alpha = 0.0
+        }, completion: { completion in
+            self.selectionView.isHidden = true
+        })
     }
 }
 
