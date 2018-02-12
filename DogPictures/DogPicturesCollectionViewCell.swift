@@ -15,6 +15,9 @@ class DogPicturesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var animatedIndicatorIcon: UIImageView!
     
     func loadCellWithImageURL(url: URL?, isAnimation: Bool) {
+    
+        thumbnailImage.layer.cornerRadius = 10
+        thumbnailImage.layer.masksToBounds = true
         thumbnailImage.sd_setImage(with: url, placeholderImage: nil)
         animatedIndicatorIcon.isHidden = !isAnimation
     }

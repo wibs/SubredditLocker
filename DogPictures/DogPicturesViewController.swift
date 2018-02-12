@@ -109,7 +109,15 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         selectedImage.sd_setImage(with: posts[indexPath.row].data.postURL)
         
         let translatedFrame = collectionView.convert(cell.frame, to: view)
-        self.selectedImage.frame = translatedFrame
+        animateImageIn(fromFrame: translatedFrame)
+    }
+    
+    @IBAction func imageTapped(_ sender: Any) {
+        animateImageOut(toFrame: openedCellFrame)
+    }
+    
+    func animateImageIn(fromFrame frame: CGRect) {
+        self.selectedImage.frame = frame
         openedCellFrame = self.selectedImage.frame
         self.selectionView.isHidden = false
         self.selectionView.alpha = 0.0
@@ -121,8 +129,7 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         })
     }
     
-    @IBAction func imageTapped(_ sender: Any) {
-        
+    func animateImageOut(toFrame frame: CGRect?) {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
             guard let destinationFrame = self.openedCellFrame else {
                 self.selectionView.isHidden = false;
