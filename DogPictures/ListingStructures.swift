@@ -32,7 +32,7 @@ struct PostData : Codable {
     private let url : String
     
     var animated : Bool {
-        //TODO: This is an incredibly naive approach
+        //TODO: This is an incredibly naive approach - replace with something more robust
         return url.hasSuffix("gif") || url.hasSuffix("gifv")
     }
 

@@ -13,8 +13,6 @@
 		A93E56F1202D302400CB6DA4 /* DogPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E56F0202D302400CB6DA4 /* DogPicturesViewController.swift */; };
 		A93E56F6202D302400CB6DA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A93E56F5202D302400CB6DA4 /* Assets.xcassets */; };
 		A93E56F9202D302400CB6DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93E56F7202D302400CB6DA4 /* LaunchScreen.storyboard */; };
-		A93E5704202D302500CB6DA4 /* DogPicturesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E5703202D302500CB6DA4 /* DogPicturesTests.swift */; };
-		A93E570F202D302500CB6DA4 /* DogPicturesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E570E202D302500CB6DA4 /* DogPicturesUITests.swift */; };
 		A93E571D202D30FE00CB6DA4 /* DogPicturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A93E571C202D30FE00CB6DA4 /* DogPicturesViewController.xib */; };
 		A93E5721202D474800CB6DA4 /* ListingStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E5720202D474800CB6DA4 /* ListingStructures.swift */; };
 		A9807D45202D497100DA75A7 /* DogPicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */; };
@@ -53,11 +51,7 @@
 		A93E56F8202D302400CB6DA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93E56FA202D302400CB6DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93E56FF202D302500CB6DA4 /* DogPicturesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogPicturesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A93E5703202D302500CB6DA4 /* DogPicturesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesTests.swift; sourceTree = "<group>"; };
-		A93E5705202D302500CB6DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93E570A202D302500CB6DA4 /* DogPicturesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogPicturesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A93E570E202D302500CB6DA4 /* DogPicturesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesUITests.swift; sourceTree = "<group>"; };
-		A93E5710202D302500CB6DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93E571C202D30FE00CB6DA4 /* DogPicturesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogPicturesViewController.xib; sourceTree = "<group>"; };
 		A93E5720202D474800CB6DA4 /* ListingStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingStructures.swift; sourceTree = "<group>"; };
 		A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -122,8 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				A93E56ED202D302400CB6DA4 /* DogPictures */,
-				A93E5702202D302500CB6DA4 /* DogPicturesTests */,
-				A93E570D202D302500CB6DA4 /* DogPicturesUITests */,
 				A93E56EC202D302400CB6DA4 /* Products */,
 				3206BC6FB07A55E59C9BB76B /* Pods */,
 				112209D850549385EC90CD96 /* Frameworks */,
@@ -154,24 +146,6 @@
 				A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */,
 			);
 			path = DogPictures;
-			sourceTree = "<group>";
-		};
-		A93E5702202D302500CB6DA4 /* DogPicturesTests */ = {
-			isa = PBXGroup;
-			children = (
-				A93E5703202D302500CB6DA4 /* DogPicturesTests.swift */,
-				A93E5705202D302500CB6DA4 /* Info.plist */,
-			);
-			path = DogPicturesTests;
-			sourceTree = "<group>";
-		};
-		A93E570D202D302500CB6DA4 /* DogPicturesUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A93E570E202D302500CB6DA4 /* DogPicturesUITests.swift */,
-				A93E5710202D302500CB6DA4 /* Info.plist */,
-			);
-			path = DogPicturesUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,7 +455,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93E5704202D302500CB6DA4 /* DogPicturesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +462,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93E570F202D302500CB6DA4 /* DogPicturesUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

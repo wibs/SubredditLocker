@@ -16,9 +16,9 @@ class DogPicturesCollectionViewCell: UICollectionViewCell {
     
     func loadCellWithImageURL(url: URL?, isAnimation: Bool) {
     
+        animatedIndicatorIcon.isHidden = !isAnimation
         thumbnailImage.layer.cornerRadius = 10
         thumbnailImage.layer.masksToBounds = true
         thumbnailImage.sd_setImage(with: url, placeholderImage: nil)
-        animatedIndicatorIcon.isHidden = !isAnimation
     }
 }

@@ -11,23 +11,23 @@ import FLAnimatedImage
 
 class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    let defaultSubreddit = "aww"
+    let defaultFilter = "top"
     var posts : [RedditPost] = []
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     let numberOfCellsPerRow : Int = 3
+    var openedCellFrame: CGRect?
     
     @IBOutlet weak var selectionView: UIView!
     @IBOutlet weak var selectedImage: FLAnimatedImageView!
+    let animationDuration = 0.3
     
-    var openedCellFrame: CGRect?
-    
-    let defaultSubreddit = "aww"
-    let defaultFilter = "top"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.register(UINib(nibName: String(describing: DogPicturesCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: DogPicturesCollectionViewCell.self))
-        
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         loadDataFromSubreddit(subreddit: defaultSubreddit, filter: defaultFilter)
@@ -123,14 +123,14 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         self.selectionView.alpha = 0.0
         view.layoutIfNeeded()
         
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut, animations: {
             self.selectionView.alpha = 1.0
             self.selectedImage.frame = UIScreen.main.bounds
         })
     }
     
     func animateImageOut(toFrame frame: CGRect?) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut, animations: {
             guard let destinationFrame = self.openedCellFrame else {
                 self.selectionView.isHidden = false;
                 return
