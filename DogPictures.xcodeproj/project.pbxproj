@@ -17,6 +17,7 @@
 		A93E5721202D474800CB6DA4 /* ListingStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93E5720202D474800CB6DA4 /* ListingStructures.swift */; };
 		A9807D45202D497100DA75A7 /* DogPicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */; };
 		A9807D46202D497100DA75A7 /* DogPicturesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */; };
+		A9B3F1D92031E52800A875DC /* RedditLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3F1D82031E52800A875DC /* RedditLoader.swift */; };
 		F36A2B09B7EA0895A41B07DB /* Pods_DogPicturesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4478C4074AE85BAFAF0763E2 /* Pods_DogPicturesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		A93E5720202D474800CB6DA4 /* ListingStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingStructures.swift; sourceTree = "<group>"; };
 		A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogPicturesCollectionViewCell.xib; sourceTree = "<group>"; };
+		A9B3F1D82031E52800A875DC /* RedditLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditLoader.swift; sourceTree = "<group>"; };
 		BDDE56A594DA3FD69EB2F47E /* Pods_DogPictures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogPictures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D1429BA0FD86E316CFE768 /* Pods_DogPicturesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogPicturesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6A4A46BDF91E7F4C98BC67 /* Pods-DogPicturesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogPicturesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogPicturesUITests/Pods-DogPicturesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				A93E5720202D474800CB6DA4 /* ListingStructures.swift */,
 				A9807D43202D497100DA75A7 /* DogPicturesCollectionViewCell.swift */,
 				A9807D44202D497100DA75A7 /* DogPicturesCollectionViewCell.xib */,
+				A9B3F1D82031E52800A875DC /* RedditLoader.swift */,
 			);
 			path = DogPictures;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B3F1D92031E52800A875DC /* RedditLoader.swift in Sources */,
 				A93E5721202D474800CB6DA4 /* ListingStructures.swift in Sources */,
 				A93E56F1202D302400CB6DA4 /* DogPicturesViewController.swift in Sources */,
 				A9807D45202D497100DA75A7 /* DogPicturesCollectionViewCell.swift in Sources */,

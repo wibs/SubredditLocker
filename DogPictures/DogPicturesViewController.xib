@@ -14,6 +14,7 @@
                 <outlet property="collectionView" destination="9KA-yZ-oz8" id="uAS-VC-yqJ"/>
                 <outlet property="selectedImage" destination="HTd-c5-gK9" id="cOS-ma-EEF"/>
                 <outlet property="selectionView" destination="DsO-tw-s4D" id="NDg-Eu-jT7"/>
+                <outlet property="statusIndicator" destination="9Y6-qw-luz" id="BRq-f1-CFD"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Gj4-ti-KJl"/>
             </connections>
         </placeholder>
@@ -24,7 +25,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9KA-yZ-oz8">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.10177205166220253" green="0.26093125622002017" blue="0.3945728058510638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="cy1-69-FBp">
                         <size key="itemSize" width="150" height="150"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,14 +51,23 @@
                         </imageView>
                     </subviews>
                 </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9Y6-qw-luz">
+                    <rect key="frame" x="162" y="308" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="fce-vS-eq7"/>
+                        <constraint firstAttribute="height" constant="50" id="lpC-KW-MkX"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.13961903580324911" green="0.35796635529457427" blue="0.54130651595744683" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="DsO-tw-s4D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3no-Kb-TTh"/>
                 <constraint firstItem="DsO-tw-s4D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4IX-MB-Uqs"/>
                 <constraint firstItem="9KA-yZ-oz8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7x4-fv-B08"/>
                 <constraint firstAttribute="trailing" secondItem="DsO-tw-s4D" secondAttribute="trailing" id="Sx4-oz-JqA"/>
+                <constraint firstItem="9Y6-qw-luz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dHa-PY-MLH"/>
                 <constraint firstAttribute="bottom" secondItem="DsO-tw-s4D" secondAttribute="bottom" id="dL2-q4-IT2"/>
+                <constraint firstItem="9Y6-qw-luz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dpQ-7e-Aft"/>
                 <constraint firstItem="9KA-yZ-oz8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fJs-T4-Vph"/>
                 <constraint firstAttribute="bottom" secondItem="9KA-yZ-oz8" secondAttribute="bottom" id="jMz-h2-I2U"/>
                 <constraint firstAttribute="trailing" secondItem="9KA-yZ-oz8" secondAttribute="trailing" id="kNF-pO-9er"/>

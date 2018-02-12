@@ -15,6 +15,7 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
     let defaultFilter = "top"
     var posts : [RedditPost] = []
     
+    @IBOutlet weak var statusIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     let numberOfCellsPerRow : Int = 3
     var openedCellFrame: CGRect?
@@ -23,66 +24,35 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var selectedImage: FLAnimatedImageView!
     let animationDuration = 0.3
     
+    // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.register(UINib(nibName: String(describing: DogPicturesCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: DogPicturesCollectionViewCell.self))
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        loadDataFromSubreddit(subreddit: defaultSubreddit, filter: defaultFilter)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         setCellSize(cellsPerRow: numberOfCellsPerRow)
+        loadPosts()
     }
     
-    func setCellSize(cellsPerRow : Int) {
+    // MARK: - Data Handling
     
-        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            let spacing = flowLayout.minimumInteritemSpacing
-            let cellWidth = (view.bounds.width - (CGFloat(numberOfCellsPerRow - 1)) * spacing)/CGFloat(cellsPerRow)
-            flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
-        }
-    }
-    
-    func loadDataFromSubreddit(subreddit: String, filter: String) {
+    func loadPosts() {
         
-        let endpoint = String(format: Constants.endPoint, subreddit, filter, 100)
-        guard let url = URL(string: endpoint) else {
-            NSLog("Failed to create URL from formatted string \(endpoint)")
-            return
+        statusIndicator.startAnimating()
+        RedditLoader.loadPosts(fromSubreddit: defaultSubreddit, filter: .Top) { posts in
+            self.posts = posts
+            self.statusIndicator.stopAnimating()
+            self.collectionView.reloadData()
         }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let error = error {
-                NSLog("Failed to load subreddit data due to error \(error)")
-                return
-            }
-            self.parseResponseData(data)
-            }.resume()
     }
     
-    func parseResponseData(_ data : Data?) {
-        guard let data = data else {
-            NSLog("Error unwrapping data")
-            return
-        }
-        
-        do {
-            let encodeData = try JSONDecoder().decode(ListingRequestResult.self, from: data) as ListingRequestResult
-            
-            self.posts = encodeData.data.children
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-        catch {
-            NSLog("Error parsing post data: \(error)")
-        }
-    }
+    // MARK: - Collection View Datasource Methods
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
@@ -96,9 +66,10 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         cell.loadCellWithImageURL(url: posts[indexPath.row].data.thumbnailURL, isAnimation: posts[indexPath.row].data.animated)
-        
         return cell
     }
+    
+    // MARK: - Collection View Delegate Methods
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -112,11 +83,30 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
         animateImageIn(fromFrame: translatedFrame)
     }
     
+    // MARK: - Gesture Recognizers
+    
     @IBAction func imageTapped(_ sender: Any) {
+        
         animateImageOut(toFrame: openedCellFrame)
     }
     
+    // MARK: - Supporting Functions
+    
+    // MARK: UI
+    
+    func setCellSize(cellsPerRow : Int) {
+        
+        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            let spacing = flowLayout.minimumInteritemSpacing
+            let cellWidth = (view.bounds.width - (CGFloat(numberOfCellsPerRow - 1)) * spacing)/CGFloat(cellsPerRow)
+            flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        }
+    }
+    
+    // MARK: Animations
+    
     func animateImageIn(fromFrame frame: CGRect) {
+        
         self.selectedImage.frame = frame
         openedCellFrame = self.selectedImage.frame
         self.selectionView.isHidden = false
@@ -130,6 +120,7 @@ class DogPicturesViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func animateImageOut(toFrame frame: CGRect?) {
+        
         UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut, animations: {
             guard let destinationFrame = self.openedCellFrame else {
                 self.selectionView.isHidden = false;
